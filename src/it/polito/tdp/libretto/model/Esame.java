@@ -83,7 +83,7 @@ public class Esame {
 	/**
 	 * @param voto the voto to set
 	 */
-	private void setVoto(int voto) {
+	public void setVoto(int voto) {
 		this.voto = voto;
 	}
 
@@ -100,7 +100,7 @@ public class Esame {
 	/**
 	 * @param dataSuperamento the dataSuperamento to set
 	 */
-	private void setDataSuperamento(LocalDate dataSuperamento) {
+	public void setDataSuperamento(LocalDate dataSuperamento) {
 		this.dataSuperamento = dataSuperamento;
 	}
 	

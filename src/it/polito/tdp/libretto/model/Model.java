@@ -1,15 +1,10 @@
 package it.polito.tdp.libretto.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import it.polito.tdp.libretto.db.EsameDAO;
 
 public class Model {
 
-	private List<Esame> esami;
 	
-	public Model(){
-		this.esami = new ArrayList<Esame>();
-	}
 	
 	/**
 	 * Aggiunge un esame all'elenco vericando che non ci
@@ -20,22 +15,21 @@ public class Model {
 	 * esisteva già) 
 	 */
 	public boolean addEsame(Esame esame){
-		if(!this.esami.contains(esame)){
-			this.esami.add(esame);
-			return true;
+		if(cercaEsame(esame.getCodice())==null){
+			EsameDAO ed = new EsameDAO();
+			return ed.createEsame(esame);
+			//return true;
 		}
 		return false;
 	}
 	
 	
 	public Esame cercaEsame(String codice){
-		int posizione = this.esami.indexOf(new Esame(codice, "", ""));
-		if(posizione == -1){
-			return null;
-		}
-		else{
-			return this.esami.get(posizione);
-		}
+		
+		EsameDAO ed = new EsameDAO();
+		Esame e = ed.find(codice);
+		return e;
+		
 	}
 	
 }

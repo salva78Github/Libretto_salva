@@ -79,7 +79,7 @@ public class LibrettoController {
     		if(e==null){
         		txtMessage.appendText("Codice non trovato.\n");
     		}else{
-        		txtMessage.appendText("Codice non trovato.\n");
+        		txtMessage.appendText("Codice trovato.\n");
         		//reimposto il codice nella vista perché il model
         		//potrebbe manipolarlo per la ricerca - per esempio farlo
         		//tutto minuscolo
